@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/_",
     "incremental": true,
     "removeComments": true,
     "preserveConstEnums": true,
