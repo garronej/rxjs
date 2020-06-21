@@ -24,6 +24,7 @@ export class AnimationFrameAction<T> extends AsyncAction<T> {
     // If an animation frame has already been requested, don't request another
     // one. If an animation frame hasn't been requested yet, request one. Return
     // the current animation frame request id.
+    //@ts-ignore
     return scheduler.scheduled || (scheduler.scheduled = requestAnimationFrame(
       () => scheduler.flush(undefined)));
   }
@@ -38,6 +39,7 @@ export class AnimationFrameAction<T> extends AsyncAction<T> {
     // set the scheduled flag to undefined so the next AnimationFrameAction will
     // request its own.
     if (scheduler.actions.length === 0) {
+      //@ts-ignore
       cancelAnimationFrame(id);
       scheduler.scheduled = undefined;
     }

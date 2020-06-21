@@ -92,10 +92,13 @@ function animationFramesFactory(timestampProvider: TimestampProvider) {
     const run = () => {
       subscriber.next(timestampProvider.now() - start);
       if (!subscriber.closed) {
+        //@ts-ignore
         id = requestAnimationFrame(run);
       }
     };
+    //@ts-ignore
     id = requestAnimationFrame(run);
+    //@ts-ignore
     return () => cancelAnimationFrame(id);
   });
 }
